@@ -12,7 +12,7 @@ class Pedido{
     + fecha_Encargado:int
     + fecha_Entrega:int
 
-    + calcular_precio(cant_cortada:int):int
+    + cortar(:Producto_Pedido,cant_cortada:int):int
 
 }
 
@@ -35,8 +35,9 @@ class Feteado
 class Producto_Pedido{
     + cantidad_pedida:float
     + cantidad_cortada:float
+    + precio_cortado:int
 
-    + calcular_precio(cant_cortada:int):int
+    + cortar(cant_cortada:int):int
 }
 
 Producto_Pedido -left->"1" Producto_Stock
