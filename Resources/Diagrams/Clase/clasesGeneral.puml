@@ -1,0 +1,64 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Algo_Queso
+class Cliente{
+    + direccion:string
+    + barrio:string
+    + cant_pedidos:int
+}
+
+class Pedido{
+    + fecha_Encargado:int
+    + fecha_Entrega:int
+
+    + calcular_precio(cant_cortada:int):int
+
+}
+
+interface EstadoPedido
+'class Pedido_Pendiente_Cortar implements EstadoPedido
+'class Pedido_Cortado_Sin_Entregar implements EstadoPedido
+'class Pedido_Entregado implements EstadoPedido
+
+interface Producto_Stock{
+    + cantidad_kg:float
+
+    + cortar(cantidad:int)
+    + calcular_precio(cant_cortada:int)
+}
+
+class Queso
+class Embutido
+class Feteado
+
+class Producto_Pedido{
+    + cantidad_pedida:float
+    + cantidad_cortada:float
+
+    + calcular_precio(cant_cortada:int):int
+}
+
+Producto_Pedido -left->"1" Producto_Stock
+
+interface Medio_De_Pago{
+    + aplicar_descuento(precio:int):int
+}
+
+Pedido *-down->"1" EstadoPedido
+Pedido *-down->"1" Medio_De_Pago
+
+
+Algo_Queso "1"*-> "*" Cliente
+Algo_Queso *-down->"*" Pedido
+Pedido o->"1" Cliente
+Producto_Stock "*"<-up-* Algo_Queso
+
+Queso .up.|> Producto_Stock
+Feteado .up.|> Producto_Stock
+Embutido .up.|> Producto_Stock
+
+Producto_Pedido "*" <-o Pedido
+
+
+@enduml
