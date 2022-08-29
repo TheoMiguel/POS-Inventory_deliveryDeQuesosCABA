@@ -1,0 +1,24 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+actor actor
+actor -> AlgoQuesos: nuevoPedido()
+AlgoQuesos --> actor: pedido
+
+create "pedido:Pedido" as pedido
+AlgoQuesos -> pedido: new
+create "pendiente:EstadoPedido" as estado
+pedido -> estado :new
+
+actor -> AlgoQuesos: agregarProducto(pedido,"danbo", 1.5)
+
+AlgoQuesos -> AlgoQuesos: getProductoStock("danbo")
+AlgoQuesos --> AlgoQuesos: danbo:ProductoStock
+
+AlgoQuesos -> pedido: agregar(danbo:ProductoStock)
+
+create "danbo:ProductoPedido" as productoPedido
+pedido -> productoPedido: new(danbo:ProdcutoStock)
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor actor
+
+
+actor -> ":Pedido" as pedido: calcular_precio()
+loop para cada Producto_Pedido
+    pedido ->":Producto_Pedido" as producto:
+end
+
+@enduml
