@@ -8,7 +8,9 @@ actor actor
 
 actor -> ":Pedido" as pedido: calcular_precio()
 loop para cada Producto_Pedido
-    pedido ->":Producto_Pedido" as producto:
-end
+    pedido ->":Producto_Pedido" as producto: getPrecioCortado()
+    producto --> pedido : precio
 
+end
+pedido --> actor : precioTotal
 @enduml
