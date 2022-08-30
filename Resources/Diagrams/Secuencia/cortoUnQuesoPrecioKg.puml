@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+'esta version es con una clase precio que voy pasando por ahi
+
+autonumber
+
+actor actor
+
+actor -> ":Pedido" as pedido: cortar(producto:ProductoPedido, 2)
+pedido -> "producto:ProductoPedido" as prodPedido: cortar(2)
+prodPedido -> "queso:ProductoStock" as prodStock: calcularPrecio(precioCortado:Precio, 2)
+prodStock -> ":Precio" : establecer(precioKg x 2)
+prodPedido -> prodStock : cortar(2)
+
+@enduml

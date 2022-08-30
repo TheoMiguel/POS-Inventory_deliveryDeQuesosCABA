@@ -42,6 +42,10 @@ class Producto_Pedido{
 
 Producto_Pedido -left->"1" Producto_Stock
 
+class Precio
+
+Producto_Pedido -down-> Precio
+
 interface Medio_De_Pago{
     + aplicar_descuento(precio:int):int
 }

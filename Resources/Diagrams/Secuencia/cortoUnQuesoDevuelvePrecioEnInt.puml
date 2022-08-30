@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+actor actor
+
+actor -> ":Pedido" as pedido: cortar(producto:ProductoPedido, 2)
+pedido -> "producto:ProductoPedido" as prodPedido: cortar(2)
+prodPedido -> "queso:ProductoStock" as prodStock: cortar(2)
+prodStock -> prodStock: restar(2)
+prodStock --> prodPedido: 2x precioPorKg
+
+
+@enduml

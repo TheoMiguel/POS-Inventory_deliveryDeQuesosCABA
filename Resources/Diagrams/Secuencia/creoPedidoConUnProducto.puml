@@ -19,6 +19,6 @@ AlgoQuesos --> AlgoQuesos: danbo:ProductoStock
 AlgoQuesos -> pedido: agregar(danbo:ProductoStock)
 
 create "danbo:ProductoPedido" as productoPedido
-pedido -> productoPedido: new(danbo:ProdcutoStock)
+pedido -> productoPedido: new(danbo:ProdcutoStock, 1.5)
 
 @enduml
